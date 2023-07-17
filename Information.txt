@@ -1,0 +1,100 @@
+-------------------------------------- API REST-NPM-EXPRESS-MODULES ------------------------------------
+
+
+-------------------------------------------- NODE O NODE.JS --------------------------------------------
+
+Un entorno de código abierto, multi-plataforma que permite crear aplicaciones del lado del servidor en javascript. Permite crear API'S, aplicaciones web e incluso acceder a archivos y leer documentos.
+
+VENTAJAS DE NODE
+
+- Velocidad y rendimiento, NODE fue pensado para solucionar estos problemas, ademas, es excelente para aplicaciones en tiempo real
+
+- Javascript, si ya tienes experiencia en javascript, ahora podrás crear aplicaciones FULLSTACK con NODE sin necesidad de compiladores ni lenguajes extras.
+
+- NODE PACKAGE MANAGER (NPM), una gran cantidad de paquetes y librerias de código abierto ya listos, entre ellos encontrarás subida de archivo, auternticación, enviar email, template engines (motores de plantillas), seguridad y mucho más.
+
+- Funciona en windows, mac y linux.
+
+- Una gran cantidad de librerias, soporte, documentacion, ejemplos, comunidad.
+
+
+----------------------------------- EXPRESS -----------------------------------
+
+Introducción al FRAMEWORK de NODE.
+
+EXPRESS JS
+
+Es el FRAMEWORK web más popular de NODE, y es la herramienta sobre la que están desarrollados otros FRAMEWORKS como MEAN, SAILS, LOOPBACK, GRAPHQL, YOGA y otros.
+
+
+CARACTERISTICAS DE EXPRESS
+
+- Soporta los diferentes verbos HTTP como son POST, GET, PUT, PATCH, DELETE en las rutas (routes).
+- Soporta "VISTAS" que son los datos mostrados en la pantalla mediante determinadas respuestas.
+- Permite la creación de aplicaciones MVC que permiten tener una separación de código.
+- Soporte a MIDDLEWARE, mediante peticiones que se ejecutan en la tuberia de la petición.
+
+
+MIDDLEWARE EXPRESS 
+
+El MIDDLEWARE se utiliza bastante en express, permite acceder a archivos, revisar si un usuario esta auntenticado o no, entre otras.
+
+El MIDDLEWARE se ejecuta en pila, por lo tanto se ejecuta uno y despues el otro.
+
+En algunos casos el MIDDLEWARE lo creas tu (similar a crear tus propias funciones) o también esta disponible en EXPRESS una gran cantidad de MIDDLEWARES.
+
+
+DESVENTAJAS DE EXPRESS 
+
+A diferencia de otros FRAMEWORKS como DJANGO o LARAVEL; EXPRESS no viene con "baterias incluidas" como puede ser autenticación, roles, orm o generador de modelos, estas piezas usualmente se instalan vía   NPM. De esta forma solo isntalas lo que necesitas en tu aplicación (lo cual puede ser uan ventaja)
+
+
+----------------------------------- MODEL VIEW CONTROLLER (MVC)-----------------------------------
+
+Patrón de Arquitectura de Software que permite la separación de obligaciones de cada pieza de tu código. Enfatiza la separación de la lógica de programación con la presentación.
+
+MVC es la Arquitectura más común hoy en día tanto para web y se utiliza en cualquier lenguaje
+
+
+VENTAJAS DE MVC
+
+- La aplicación no tendrá mejor performance pero si tendrá un mejor orden en el código.
+
+- Al implementar una arquitectura probada como MVC todos los programadores de un grupo saben exactamente donde encontrar el código encargado de realizar alguna tarea.
+
+- Aprende MVC y cualquier framework MVC te será fácil de aprender.
+
+
+
+----------------------------------- MODELO -----------------------------------
+
+Encargado de todo lo relacionado a los datos, Base de datos y el CRUD.
+
+El Modelo se encargará de consultar una base de datos pero no se encarga de mostrar esos datos.
+
+
+
+----------------------------------- VISTA -----------------------------------
+
+Se encarga de todo lo que se ve en pantalla (HTML).
+
+El modelo se encarga de consultar la base de datos pero es la vista la que se encarga de mostrar los resultados.
+
+En nuestro proyecto, React es la vista.
+
+
+
+----------------------------------- CONTROLADOR -----------------------------------
+
+Es el que comunica Modela y Vista, antes de que el modelo consulte a la base de datos el Controlador es el encargado de llamarlo, una vez que el Modelo ya consulto la base de datos, es el Controlador quien le comunica a la vista los datos para que los muestre.
+
+
+
+----------------------------------- ROUTER -----------------------------------
+
+Encargado de registrar todas las URL's o Endpoints que soporta nuestra aplicación.
+
+Ejemplo: Si el usuario accede a una URL el Router ya tiene indicaciones de comunicarse con un Controlador en especifico, ese Controlador ya sabe que Modelo va a llamar y que vista va a ejecutar.
+
+
+

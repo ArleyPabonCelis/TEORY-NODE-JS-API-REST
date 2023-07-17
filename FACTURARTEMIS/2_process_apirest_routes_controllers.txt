@@ -1,0 +1,57 @@
+PROCEDIMIENTO API REST - Routes - Controllers
+
+1. Creación de la base de datos "facturartemis"
+    1.1. Abrir el phpMyAdmin. En caso de Windows: dede abrir el xampp y darle clic en "start" al apache y al MySQL, una vez iniciado darle clic en "Admin", este me abrira el phpMyAdmin. En caso de Linux, en el buscador escribimos "phpMyAdmin", seleccionamos el primer link y entramos a phpMyAdmin. (Se observa que la pag se divide en dos partes, la primera es donde esta el titulo "phpMyAdmin" que en la parte de abajo se ven unos dibujos y unas ramas; y la segunda es como la parte central de la página donde en la parte superior vemos el "servidor" y debajo un menu)
+    1.2. Vamos a "pagina de inicio", damos clic a la casita que esta en la parte superior izquierda de la primer parte de la página.
+    1.3. En la parte superir izquierda de la segunda parte de la página, en el menú, damos clic en "Base de datos"
+    1.4. En la parte "Crear base de datos", llenamos el input del "Nombre de la base de datos", nuestra base de datos se llama "facturartemis", despues en el select, seleccionamos la opcion "utf8_general_ci" y por ultimo damos clic en "Crear".
+    1.5. Observamos que estamos en la base de datos "facturartemis", y que por ahora esta vacía
+
+
+2. Importación de datos a la base de datos "facturartemis"
+    2.1. Descargar el archivo "facturartemis.sql"
+    2.2. Situados en la base de datos "facturartemis" de phpMyAdmin, vemos en la segunda parte de la página en la parte superior hay un menú, buscamos "Importar" y le damos clic.
+    2.3. En el primer cuadro que aparece "Archivo a importar:", buscamos el boton "Seleccionar archivo", le damos clic y subimos el archivo "facturartemis.sql"
+    2.4. Nos desplazamos a la parte final de la página y le damos clic al boton "Importar" 
+    2.5. Debe aparecer el siguiente mensaje: "Importación ejecutada exitosamente, 65 consultas ejecutadas. (facturartemis.sql)" y en la primera parte de la página vemos que aparece el titulo "facturartemis" y con el una sección de "Tablas" que lleva dentro categorias, clientes, etc. Tambien le podemos dar clic para poder ver las tablas en la segunda parte de la página.
+    
+
+NOTA: Lo que se va a trabajar con el nombre de categorias, aun no esta ligada a la base de datos "facturartemis".
+
+
+3. Gestión de la response a través de las routes
+    3.1. Dentro de la carpeta "routes", crear un archivo llamado "categorias.routes.js"
+
+
+4. Trabajo en el archivo "categorias.routes.js"
+    4.1. Puntos 1 - 4.
+
+
+5. Trabajo en el archivo "app.js"
+    5.1. Puntos 5 - 6.
+    5.2. Comprobación en la web, vamos a google chrome o firefox y en la barra escribimos "localhost:5000" y le damos enter. Debe aparecer un el siguiente mensaje : "Categorias de facturartemis", mensaje que aparece en el archivo "categorias.routes.js" en el punto 4, la res.send()
+
+
+NOTA: Un enrutador no responde, un enrutador enrruta, es por eso que la arrow function que esta en el archivo "categorias.routes.js" en el punto 4, no va en esa parte, si no debe estar gestionada por "controllers", ya que el controlador es quien controla las respuestas que el servidor envia al cliente.
+
+
+6. Controlador de categorias
+    6.1. Crear un archivo llamado "categoria.controllers.js" dentro de la carpeta "controllers".
+
+
+7. Trabajo en el archivo "categoria.controllers.js"
+    7.1. Puntos 1 y 2.
+
+
+8. Trabajo en el archivo "categorias.routes.js"
+    8.1. Borrar la arrow function que esta en el router.get()
+    8.2. Punto 5 y 6.
+
+
+9. Trabajo en el archivo "app.js"
+    9.1. Punto 7
+    9.2. Ir al navegador y recargar la pag donde se esta trabajando. (Se debe de dañar las página "cannot GET/")
+    9.3. Escribir en el link del navegador "localhost:5000/api/categorias y observar lo realcionado.
+
+
+

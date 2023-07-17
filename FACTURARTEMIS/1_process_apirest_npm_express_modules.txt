@@ -1,0 +1,70 @@
+PROCEDIMIENTO API REST - NPM - EXPRESS - Modules
+
+1. Creación de la carpeta "FACTURARTEMIS"
+
+
+2. Creación de la subcarpeta "backend"
+
+
+3. Llamar el package.json:
+    3.1. Abrir el terminal ya sea bash o powershell: Terminal/New Terminal
+    3.2. Entrar a la carpeta "backend": cd backend
+    3.3. Llamar el package.json: npm init -y 
+    3.4. Observar el package.json dentro de la carpeta "backend" con todos sus datos.
+
+
+4. Instalar el EXPRESS
+    4.1. Dentro del terminal se descarga el express, se instalar de las siguientes maneras:
+        a. npm i express 
+        b. npm install express
+    4.2. Observar en el package.json el "dependecies" y adentro el "express" 
+    4.3. Observar que se crea automaticamente una nueva carpeta "node_modules" dentro de "backend", donde estan todos los modulos que tienen directa o indirectamente una realcion con el express (Observar la carpeta "express" que esta dentro de "node_modules")
+    4.4. Observar que se crea automaticamente el package-lock.json, ese lo vamos a dejar quieto.
+
+
+5. Creación de la estructura de carpetas y archivos que constituyen la APIREST
+    5.1. Creación de la carpeta "src" dentro de "backend": source -> código fuente, entra toda la aplicación
+    5.2. Creación de las carpetas "controllers", "db" y "routes" dentro de "src"
+    5.3. Creación de los archivos "app.js", "index.js" y "config.js" dentro de "src"
+    5.4. Creación del archivo ".env" (environment) dentro de "backend"
+
+
+6. Trabajo en el archivo "index.js"
+    6.1. Proceso 1. Puntos 1 y 2.
+
+
+7. Trabajo en el archivo "app.js"
+    7.1. En el archivo "package.json", agregar: "type" : "module", debajo de "description" : "", esto con el objetivo para que se pueda importar el "express".
+    7.2. Puntos 1-4.
+
+
+8. Trabajo en el archivo "index.js"
+    8.1. Proceso 2. Puntos 1.
+    8.2. Proceso 1. Punto 3.
+    8.3. En el archivo "package.json", borrar: "test" que esta en la llave de "scripts"
+    8.4. En el archivo "package.json", crear: "dev" : "node src/index.js"
+    8.5. Ejecutar el programa de framework express, vamos al terminal y escribimos lo siguiente: "npm run dev" despues le damos enter y me debe aparecer el mensaje del archivo "index.js" de la Seccion 1. Punto 3. console.log
+    8.6. Comprobacion en la web, vamos a google chrome o firefox y en la barra escribimos "localhost:5000" y le damos enter. Debe aparecer un el siguiente mensaje : "Cannot GET / "
+
+
+9. Trabajo en el archivo "index.js"
+    9.1. Proceso 1. Punto 3. Cambiar el texto console.log ;  ahora no es "The company" sino "The great company"
+    9.2. CTR+S para guardar el cambio que se hizo.
+    9.3. Revisar el terminal para ver si realizo el cambio. No debe efectuarse ningun cambio, ya que no hemos tumbado el servido.
+    9.4. CTR+C para tumbar el servidor y volvel a ejecutarlo de acuerdo al punto 8.5.
+
+
+10. Instalacion de NODEMON para no estar tumbando y levantando el servidor
+    10.1. Abrir una nueva pestaña del terminal, se da clic en el + que esta en la parte superior derecha del terminal.
+    10.2. Entrar a la carpeta de backend: "cd backend"
+    10.3. Instalacion del nodemon: "npm i -D nodemon" o "npm install -D nodemon" (el -D me indica que va a quedar en el devDependencies)
+    10.4. Revisar en el archivo package.json, observar que en el objeto "devDependencies" y adentro esta el "nodemon"
+    10.5. Cerrar el terminal donde instalamos el nodemon para volver al de la aplicación.
+
+
+11. Verificación de que el nodemon funciona en la aplicación
+    11.1. Tumbar el servidor actual: CTR+C (aveces es necesario oprimirlo 2 veces)
+    11.2. En el archivo "package.json" se va a modificar en el "scripts" el "dev", se cambia la palabra node por la palabra nodemon
+    11.3. Volver a modificar el texto como en el punto 9.1. agregando la palabra o frase que se desee.
+    11.4. Observar el terminal y evidenciar que los cambios se empiezan a realizar solitos.
+

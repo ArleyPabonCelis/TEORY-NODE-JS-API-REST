@@ -1,0 +1,91 @@
+PROCEDIMIENTO Métodos HTTP - DELETE - UPDATE - "GETID" - API REST - Conexión a MYSQL
+
+SECCION 1 SELECCIONAR UNA SOLO DATO DE ACUERDO AL ID
+
+1. Realización del GET de una sola Categoria: Tenemos que enviarle parámetros a la ruta, para que basado en ese ID de Categoria solamente reciba de parte de la base de datos la fila que cumple con ese criterio que la ID tiene. Es muy parecido a la función "getCategorias" 
+    1.1. Trabajo en el archivo "categoria.controllers.js"
+        1.1.1. Puntos 7 y 8.
+
+
+2. Explicación del connection.query(p1, p2) -> El parametro 1 (p1) me permite ir a la base de datos "facturartemis" en phpMyAdmin, extraer filas y datos de cualquier tabla. Pero tambien me permite analizar la llave principal en este caso el ID. El parametro 2 (p2), es la varible que vamos a analizar o que nos va a ayudar a identificar cada dato de las filas.
+    2.1. Procedimiento para llenar los parentesis
+        2.1.1. SELECT -> este me dice que va a seleccionar algo de la base de datos de "facturartemis"
+        2.1.2. nombres de las columnas -> despues del SELECT se ponen el nombre de las columnas de las cuales quiero extraer datos, se deben llamar tal y como esta en la base de datos y se separan con una coma (,).
+        2.1.3. FROM -> significa DESDE, eso quiere decir que me da la pauta para despues colocar la tabla de donde quiero sacar esos datos
+        2.1.4. nombre de la tabla -> coloco el nombre de la tabla donde estan esas columnas y de donde quiero sacar los datos.
+        2.1.5. WHERE -> hace que se devuelva una parte de los datos.
+        2.1.6. variable = ? -> Variable que quiero que coincida
+        2.1.7. Varible que se pone como segundo parametro
+        2.1.5. Ejemplo de la tabla categorias de la base de datos "facturartemis : 
+                connection.query("SELECT CategoriaID, CategoriaNombre, Descripcion, Imagen FROM categorias WHERE CategoriaID = ?", id);
+
+3. Trabajo en el archivo "categorias.routes.js"
+    3.1. Punto 8.
+
+4. Trabajo en el postman
+    4.1. Abrimos una nueva pestañan en el postman.
+    4.2. La guardamos con el nombre "Get_x_id - Categorias"
+    4.3. Copiamos y pegamos el mismo link que esta en "Get - Categorias" y verificamos que esta en el metodo "GET"
+
+
+
+SECCION 2 DELETE CATEGORIAS
+
+1. Trabajo en el archivo "categoria.controllers.js"
+    1.1. Punto 9 y 10.
+
+2. Explicación del connection.query(p1, p2) -> El parametro 1 (p1) me permite ir a la base de datos "facturartemis" en phpMyAdmin, borrar filas y datos de cualquier tabla. El parametro 2 (p2), es la varible que nos va a ayudar a identificar el dato que queremos eliminar.
+    2.1. Procedimiento para llenar los parentesis
+        2.1.1. DELETE -> este me dice que va a eliminar algo de la base de datos de "facturartemis"
+        2.1.2. FROM -> significa DESDE, eso quiere decir que me da la pauta para despues colocar la tabla de donde quiero sacar esos datos
+        2.1.3. nombre de la tabla -> coloco el nombre de la tabla donde estan esas columnas y de donde quiero eliminar los datos.
+        2.1.4. WHERE -> hace que se devuelva una parte de los datos.
+        2.1.5. variable = ? -> Variable que quiero que coincida
+        2.1.6. Varible que se pone como segundo parametro
+        2.1.7. Ejemplo de la tabla categorias de la base de datos "facturartemis : 
+                connection.query("DELETE FROM categorias WHERE CategoriaID = ?", id);
+
+3. Trabajo en el archivo "categorias.routes.js"
+    3.1. Punto 9.
+
+4. Trabajo en el postman
+    4.1. Abrimos una nueva pestañan en el postman.
+    4.2. La guardamos con el nombre "Delete - Categorias"
+    4.3. Copiamos y pegamos el mismo link que esta en "Get - Categorias" y verificamos que esta en el metodo "DELETE".
+    4.4. Al link que acabamos de copiar vamos a agregarle "/" y despues le vamos a escribir el ID de la categoria que queremos eliminar.
+    4.5. Le damos clic en "Send", me debe aparecer "Status: 200 OK"
+    4.6. Comprobamos que los datos han sido eliminados, vamos al archivo "Get - Categorias", damos clic en el Send y ya nos apareceran los datos que eliminamos
+
+
+SECCION 3 UPDATE CATEGORIAS
+
+1. Trabajo en el archivo "categoria.controllers.js"
+    1.1. Punto 11 y 12.
+
+2. Explicación del connection.query(p1, p2) -> El parametro 1 (p1) me permite ir a la base de datos "facturartemis" en phpMyAdmin, actualizar filas y datos de cualquier tabla.e caso el ID. El parametro 2 (p2), es un array, donde el primer valor es un objeto con los datos a actualizar y el segundo es el ID del datos que queremos editar.
+    2.1. Procedimiento para llenar los parentesis
+        2.1.1. UPDATE -> este me dice que se va a actualizar algo de la base de datos de "facturartemis"
+        2.1.2. nombre de la tabla -> coloco el nombre de la tabla donde estan esas columnas y de donde quiero actualizar los datos.
+        2.1.2. SET ?   -> Setea todo el cuerpo del JSON, el interrogante se reemplaza por el objeto del array
+        2.1.4. WHERE -> hace que se devuelva una parte de los datos.
+        2.1.5. variable = ? -> Variable que quiero que coincida, el interrogante se reemplaza por la variabl del ID.
+        2.1.6. Varible que se pone como segundo parametro, en este caso, un array con dos valores, uno es un objeto  y el otro la variable del ID
+        2.1.7. Ejemplo de la tabla categorias de la base de datos "facturartemis : 
+                connection.query("UPDATE categorias SET ? WHERE CategoriaID  = ?", [category, id] );
+
+3. Trabajo en el archivo "categorias.routes.js"
+    3.1. Punto 10.
+
+
+4. Trabajo en el postman
+    4.1. Abrimos una nueva pestañan en el postman.
+    4.2. La guardamos con el nombre "Put - Categorias"
+    4.3. Copiamos y pegamos el mismo link que esta en "Get - Categorias" y verificamos que esta en el metodo "PUT".
+    4.4. Le damos clic en "Body" que esta en el menu debajo del link, seleccionamos la opcion "raw" y en el ultimo select verificamos que este en JSON.
+    4.5. Debajo de ese menu, hay como una fuente de codigo, traemos los datos que tiene cada objeto de la API, crean un nuevo objeto para poder actualizarlos.
+    4.6. Al link que acabamos de copiar vamos a agregarle "/" y despues le vamos a escribir el ID de la categoria que queremos actualizar.
+    4.7. Le damos clic en "Send", me debe aparecer "Status: 200 OK"
+    4.8. Comprobamos que los datos han sido eliminados, vamos al archivo "Get - Categorias", damos clic en el Send y ya nos apareceran los datos que actualizamos. Ahora ya puedo actualizar cualquier dato de acuerdo a su ID.
+
+
+
